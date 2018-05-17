@@ -1,0 +1,15 @@
+.createEmployee {
+  border: 1px solid black;
+  display: inline-block;
+  padding: 1rem;
+  max-width: 300px;
+}
+
+.createEmployee__form {
+}
+
+.createEmployee__form input {
+  display: block;
+  padding-left: 1rem;
+  margin: 0.5rem;
+}

@@ -1,0 +1,9 @@
+.admin__nav .nav__link {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: black;
+}
+
+.admin__nav .nav__link.active {
+  text-decoration: underline;
+}
