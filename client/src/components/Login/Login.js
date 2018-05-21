@@ -29,7 +29,7 @@ class Login extends Component {
             value={this.state.email}
             onChange={this.onChange}
             name="email"
-            type="text"
+            type="email"
             placeholder="email"
           />
           <input

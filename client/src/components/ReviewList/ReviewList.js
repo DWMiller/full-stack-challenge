@@ -39,7 +39,7 @@ class ReviewList extends Component {
                 <th>Creator</th>
                 <th>Employee</th>
                 <th>Reviewer</th>
-                <th>Score</th>
+                <th>Rating</th>
               </tr>
             </thead>
 

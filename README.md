@@ -1,41 +1,44 @@
-# Full Stack Developer Challenge
-
-This is an interview challenge for Paytm Labs. Please feel free to fork. Pull Requests will be ignored.
-
-## Requirements
-
-Design a web application that allows employees to submit feedback toward each other's performance review.
-
-_Partial solutions are acceptable._ It is not necessary to submit a complete solution that implements every requirement.
-
-### Admin view
-
-* Add/remove/update/view employees
-* Add/update/view performance reviews
-* Assign employees to participate in another employee's performance review
-
-### Employee view
-
-* List of performance reviews requiring feedback
-* Submit feedback
-
-## Challenge Scope
-
-* High level description of design and technologies used
-* Server side API (using a programming language and/or framework of your choice)
-  * Implementation of at least 3 API calls
-  * Most full stack web developers at Paytm Labs currently use Node.js and/or Ruby on Rails on the server (with MySQL for the database), but feel free to use other tech if you prefer
-* Web app
-  * Implementation of 2-5 web pages using a modern web framework (preferably React) that talks to server side
-    * This should integrate with your API, but it's fine to use static responses for some of it
-* Document all assumptions made
-* Complete solutions aren't required, but what you do submit needs to run.
-
 ## How to complete this challenge
 
 * Place notes in your code to help with clarity where appropriate. Make it readable enough to present to the Paytm Labs interview team
 
 * Complete your work in your own github repo and send the results to us and/or present them during your interview
+
+### Technologies
+
+##### Client
+
+* React
+
+##### Server
+
+* NodeJS + Express
+* Mongodb
+
+### Implemented Functionality
+
+#### Admin view
+
+* Add employees
+* Add/update/view performance reviews
+* Assign employees to participate in another employee's performance review
+
+#### Employee view
+
+* List of performance reviews requiring feedback
+* Submit feedback
+
+### Pending Functionality
+
+#### Admin view
+
+* remove/update/view
+  * View arguably implemented, less relevant without expanding employee details
+  * Ability to make accounts an admin
+
+#### Generic
+
+* Quick Login using sample data
 
 ### Assumptions
 
@@ -92,3 +95,12 @@ To start the server: `yarn start`
 and navigate to `http://localhost:5000/` in your browser.
 
 If this does not appear to work, I likely decided not to commit a build of the client and forgot to update this part of the instructions. In this case, exec
+
+#### Known Bugs / Issues / Limitations
+
+* Occasional duplication of employees.
+
+  * Occurs on login, determine when login occurs without data having been cleared by logout.
+
+* Long Employee Names
+  * Employee List - Text doesn't wrap with long words, multi-line names cause high increase and jump buttons

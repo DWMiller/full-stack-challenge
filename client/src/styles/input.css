@@ -1,4 +1,10 @@
-input {
+legend {
+  font-weight: bold;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='email'] {
   display: block;
   padding: 5px;
   margin-bottom: 0.5rem;
