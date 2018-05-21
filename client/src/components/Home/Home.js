@@ -9,11 +9,16 @@ import * as selectors from '../../redux/selectors';
 
 import Login from '../Login/Login';
 import SampleData from '../SampleData/SampleData';
+import Intro from './Intro';
 
 import './Home.css';
 
 class Home extends Component {
   renderLoggedIn() {
+    return <Intro />;
+  }
+
+  renderLoggedOut() {
     return (
       <React.Fragment>
         <Login {...this.props} />
@@ -22,24 +27,15 @@ class Home extends Component {
     );
   }
 
-  renderLoggedOut() {
-    return (
-      <React.Fragment>
-        <p>Welcome to something something performance reviews.</p>
-        <p>
-          On the <strong>reviews page</strong>,{' '}
-        </p>
-      </React.Fragment>
-    );
-  }
-
   render() {
+    if (this.props.auth.pending) {
+      return <div>Loading...</div>;
+    }
+
     return (
       <div>
-        {(!this.props.auth.valid && this.renderLoggedIn()) ||
+        {(this.props.auth.valid && this.renderLoggedIn()) ||
           this.renderLoggedOut()}
-
-        {/* <ReviewList reviews={this.props.ownReviews} /> */}
       </div>
     );
   }
