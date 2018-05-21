@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../redux/actionCreators';
 import * as selectors from '../../redux/selectors';
 
-import Nav from '../Nav/Nav';
+import Header from '../Header/Header';
 import Home from '../Home/Home';
 import Admin from '../Admin/Admin';
 
@@ -27,22 +27,11 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <header className="app__header">
-          <Nav logout={this.props.logout} auth={this.props.auth} />
-        </header>
+        {this.props.auth.valid && <Header />}
+
         <div className="app__page">
           <Switch>
-            <Route
-              exact
-              path="/"
-              render={match => (
-                <Home
-                  login={this.props.login}
-                  auth={this.props.auth.valid}
-                  ownReviews={this.props.ownReviews}
-                />
-              )}
-            />
+            <Route exact path="/" component={Home} />
             <PrivateRoute
               exact
               auth={this.props.auth}
@@ -75,7 +64,6 @@ const mapStateToProps = state => {
   return {
     reviews: selectors.allReviewsSelector(state),
     auth: state.auth,
-    ownReviews: selectors.ownReviewsSelector(state),
   };
 };
 

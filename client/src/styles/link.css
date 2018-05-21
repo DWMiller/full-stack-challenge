@@ -1,0 +1,17 @@
+a {
+  color: #0b6fa4;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+a:hover {
+  color: #576574;
+  border-bottom: 1px solid #576574;
+}
+
+a.active {
+  color: #222f3e;
+  border-bottom: 1px solid #222f3e;
+  /* text-decoration: underline; */
+}

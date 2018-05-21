@@ -1,11 +1,4 @@
-.nav {
-}
-
-.nav .nav__link {
-  border: 1px solid white;
-  font-size: 150%;
-  padding: 1rem;
-  color: white;
+.app__nav .nav__link {
+  font-size: 2.5rem;
   margin-right: 1rem;
-  text-decoration: none;
 }

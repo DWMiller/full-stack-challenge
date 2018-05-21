@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import CreateEmployee from '../CreateEmployee/CreateEmployee';
 import Employee from '../Employee/Employee';
+
+import './EmployeeList.css';
 
 class EmployeeList extends Component {
   renderEmployees(employees = []) {
     return employees.map(employee => (
-      <div key={employee._id} className="employee">
+      <div key={employee._id} className="employeeList__employee">
         <Employee {...employee} />
         <button
           onClick={() => this.props.createReview(employee._id)}
@@ -21,19 +22,17 @@ class EmployeeList extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <CreateEmployee addEmployee={this.props.addEmployee} />
-        </div>
+      <div className="employeeList">
         <p>All Employees</p>
-        <div>{this.renderEmployees(this.props.employees || [])}</div>
+        <div className="employeeList__list">
+          {this.renderEmployees(this.props.employees || [])}
+        </div>
       </div>
     );
   }
 }
 
 EmployeeList.propTypes = {
-  addEmployee: PropTypes.func.isRequired,
   createReview: PropTypes.func.isRequired,
 };
 

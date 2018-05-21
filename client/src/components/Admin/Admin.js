@@ -7,7 +7,9 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../redux/actionCreators';
 import * as selectors from '../../redux/selectors';
 
-import { Route, Switch, NavLink } from 'react-router-dom';
+import { Route, Switch, Redirect, NavLink } from 'react-router-dom';
+
+import CreateEmployee from '../CreateEmployee/CreateEmployee';
 import EmployeeList from '../EmployeeList/EmployeeList';
 import ReviewList from '../ReviewList/ReviewList';
 
@@ -25,16 +27,20 @@ class Admin extends Component {
             Reviews
           </NavLink>
         </div>
-        Admin
+
         <Switch>
+          <Redirect exact from="/admin" to="/admin/employees" />
+
           <Route
             path="/admin/employees"
             render={() => (
-              <EmployeeList
-                employees={this.props.employees}
-                addEmployee={this.props.addEmployee}
-                createReview={this.props.createReview}
-              />
+              <React.Fragment>
+                <CreateEmployee addEmployee={this.props.addEmployee} />
+                <EmployeeList
+                  employees={this.props.employees}
+                  createReview={this.props.createReview}
+                />
+              </React.Fragment>
             )}
           />
           <Route

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import './Login.css';
+
 class Login extends Component {
   state = {
     email: '',
@@ -20,7 +22,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
+      <div className="login">
         <h3>Login</h3>
         <form onSubmit={this.onSubmit}>
           <input

@@ -1,16 +1,11 @@
 .app {
+  padding: 1rem;
   text-align: center;
 }
 
-.app__header {
-  background-color: #222;
-  /* height: 50px; */
-  padding: 20px;
-  color: white;
-}
-
-.app__page {
-  margin: auto;
-  max-width: 800px;
-  border: 1px solid blue;
+@media (min-width: 800px) {
+  .app {
+    max-width: 800px;
+    margin: auto;
+  }
 }

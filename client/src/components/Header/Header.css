@@ -1,0 +1,17 @@
+.app__header {
+}
+
+.app__header .logout {
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 600px) {
+  .app__header {
+    display: grid;
+    grid-template-columns: 60% 40%;
+  }
+
+  .app__header .logout {
+    margin-bottom: 0;
+  }
+}

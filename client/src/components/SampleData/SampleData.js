@@ -43,19 +43,17 @@ class SampleData extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        <table border="1">
-          <caption>Sample Login Data</caption>
-          <thead>
-            <tr>
-              <th>Email</th>
-              <th>Name</th>
-              <th>Admin</th>
-            </tr>
-          </thead>
-          <tbody>{this.renderDemoAccounts()}</tbody>
-        </table>
-      </React.Fragment>
+      <table className="sampleData" border="1">
+        <caption>Sample Login Data</caption>
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Admin</th>
+          </tr>
+        </thead>
+        <tbody>{this.renderDemoAccounts()}</tbody>
+      </table>
     );
   }
 }

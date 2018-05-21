@@ -93,16 +93,14 @@ export const checkLoggedIn = () => dispatch => {
 };
 
 export const logout = () => dispatch => {
-  axios
-    .get('/logout')
-    .then(() => {
-      dispatch(loggedOut());
-      dispatch(clearEmployees());
-      dispatch(clearReviews());
-    })
-    .catch(error => {
-      console.log('Could not logout?');
-    });
+  axios.get('/logout').catch(error => {
+    console.log('Could not logout?');
+  });
+
+  // Do not need to wait for response on logout, clear client session regardless
+  dispatch(loggedOut());
+  dispatch(clearEmployees());
+  dispatch(clearReviews());
 };
 
 // Standard actions

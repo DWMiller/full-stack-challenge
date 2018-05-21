@@ -2,11 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Logout extends Component {
+  onClick = event => {
+    event.preventDefault();
+    this.props.logout();
+  };
+
   render() {
     return (
-      <div>
-        <p>Logged in as {this.props.user.name}</p>
-        <button onClick={this.props.logout}>Logout</button>
+      <div className="logout">
+        Logged in as <strong>{this.props.user.name}</strong>
+        <br />
+        <button onClick={this.onClick}>Logout</button>
       </div>
     );
   }
