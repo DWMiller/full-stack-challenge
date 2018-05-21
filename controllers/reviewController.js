@@ -62,7 +62,8 @@ exports.completeReview = async (req, res) => {
     {
       rating: req.body.rating,
       complete: true,
-    }
+    },
+    { new: true }
   );
 
   res.json(review);

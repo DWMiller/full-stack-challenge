@@ -4,6 +4,8 @@ import { RadioGroup, Radio } from 'react-radio-group';
 
 import { Redirect } from 'react-router-dom';
 
+import './ReviewPage.css';
+
 class ReviewPage extends Component {
   findReview() {
     return this.props.reviews.find(r => r._id === this.props.reviewId);
@@ -42,13 +44,23 @@ class ReviewPage extends Component {
   render() {
     const isCompleted = this.state.review && this.state.review.complete;
 
+    if (!this.state.review) {
+      return <div>Loading...</div>;
+    }
+
     if (isCompleted) {
       return <Redirect to="/reviews" />;
     }
 
     return (
       <div>
-        <form onSubmit={this.onSubmit}>
+        <form className="reviewForm" onSubmit={this.onSubmit}>
+          <p>
+            <strong>Performance Review</strong>
+            <br />
+            <strong>Employee:</strong> {this.state.review.employee.name}
+          </p>
+          <legend>Rating</legend>
           <RadioGroup
             name="rating"
             selectedValue={this.state.rating}

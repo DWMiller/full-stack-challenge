@@ -1,0 +1,7 @@
+.reviewForm {
+  background: white;
+  margin: auto;
+  max-width: 300px;
+  border: 1px solid grey;
+  padding: 0.5rem 1rem 1rem 1rem;
+}
