@@ -65,7 +65,7 @@ export const login = params => dispatch => {
     .post('/login', params)
     .then(r => r.data)
     .then(user => {
-      if (typeof user === 'object') {
+      if (user.status !== 'error') {
         dispatch(loggedIn(user));
         dispatch(fetchEmployees());
         dispatch(fetchReviews());
@@ -78,21 +78,21 @@ export const login = params => dispatch => {
 };
 
 export const checkLoggedIn = () => dispatch => {
-  //TODO - After failed logged in, need to set auth.pending to false
-
   axios
     .get('/login')
     .then(r => r.data)
     .then(user => {
-      if (typeof user === 'object') {
+      console.log(user);
+
+      if (user.status === 'error') {
+        dispatch(loggedOut());
+        dispatch(clearEmployees());
+        dispatch(clearReviews());
+      } else {
         dispatch(loggedIn(user));
         dispatch(fetchEmployees());
         dispatch(fetchReviews());
         dispatch(fetchOwnReviews());
-      } else {
-        dispatch(loggedOut());
-        dispatch(clearEmployees());
-        dispatch(clearReviews());
       }
     })
     .catch(error => {
@@ -102,7 +102,7 @@ export const checkLoggedIn = () => dispatch => {
 
 export const logout = () => dispatch => {
   axios.get('/logout').catch(error => {
-    console.log('Could not logout?');
+    console.log('Server error');
   });
 
   // Do not need to wait for response on logout, clear client session regardless
