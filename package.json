@@ -1,7 +1,4 @@
 {
-  "now": {
-    "dotenv": "variables.prod.env"
-  },
   "scripts": {
     "start": "node ./server.js",
     "watch": "nodemon ./server.js --ignore client/"
