@@ -14,6 +14,8 @@ exports.isLoggedIn = (req, res, next) => {
     next();
     return;
   }
+
+  res.json('error');
 };
 
 exports.logout = async (req, res) => {

@@ -65,10 +65,12 @@ export const login = params => dispatch => {
     .post('/login', params)
     .then(r => r.data)
     .then(user => {
-      dispatch(loggedIn(user));
-      dispatch(fetchEmployees());
-      dispatch(fetchReviews());
-      dispatch(fetchOwnReviews());
+      if (typeof user === 'object') {
+        dispatch(loggedIn(user));
+        dispatch(fetchEmployees());
+        dispatch(fetchReviews());
+        dispatch(fetchOwnReviews());
+      }
     })
     .catch(error => {
       console.log('Could not login');
@@ -82,10 +84,16 @@ export const checkLoggedIn = () => dispatch => {
     .get('/login')
     .then(r => r.data)
     .then(user => {
-      dispatch(loggedIn(user));
-      dispatch(fetchEmployees());
-      dispatch(fetchReviews());
-      dispatch(fetchOwnReviews());
+      if (typeof user === 'object') {
+        dispatch(loggedIn(user));
+        dispatch(fetchEmployees());
+        dispatch(fetchReviews());
+        dispatch(fetchOwnReviews());
+      } else {
+        dispatch(loggedOut());
+        dispatch(clearEmployees());
+        dispatch(clearReviews());
+      }
     })
     .catch(error => {
       console.log(error);
