@@ -10,6 +10,3 @@ coverage
 .DS_Store
 .env
 *.log*
-
-# dotenv environment variables file
-*.env
