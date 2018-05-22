@@ -82,8 +82,6 @@ export const checkLoggedIn = () => dispatch => {
     .get('/login')
     .then(r => r.data)
     .then(user => {
-      console.log(user);
-
       if (user.status === 'error') {
         dispatch(loggedOut());
         dispatch(clearEmployees());
