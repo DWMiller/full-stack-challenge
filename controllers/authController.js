@@ -15,12 +15,19 @@ exports.isLoggedIn = (req, res, next) => {
     return;
   }
 
-  res.json('error');
+  res.json({
+    status: 'error',
+    message: 'Not Logged In.',
+  });
 };
 
 exports.logout = async (req, res) => {
   req.logout();
-  res.json('success');
+
+  res.json({
+    status: 'success',
+    message: 'Successfully logged out',
+  });
 };
 
 // req.user
@@ -29,4 +36,9 @@ exports.requireAdmin = (req, res, next) => {
     next();
     return;
   }
+
+  res.json({
+    status: 'error',
+    message: 'Not an admin.',
+  });
 };
